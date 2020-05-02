@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>django Weather application using weather api</title>
+    {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static  'pingoweather/css/mystyle.css' %}" >
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+<body>
+ {% if messages %}
+            <div class="alert">
+               <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+
+                <ul class="messages">
+                        {% for message in messages %}
+                             <li class="{{ message.tags }}">{{ message }}</li>
+                              {% endfor %}
+                  </ul>
+
+            </div>
+            {% endif %}
+
+<div class="base">
+
+        <div class="nothing">
+
+        </div>
+        <div class="heading">
+            <h1 class="textheading">
+                <span class="text">Pingo Weather</span>
+            </h1>
+         </div>
+        <form  action="" method="POST">
+            {% csrf_token %}
+        <div class="search">
+
+            <input type="text" id="value" name="value">
+            <input type="submit" id="submit"  name="Find">
+        </div>
+        </form>
+
+
+        <div class="information-container">
+
+
+            <div class="but"> <form action="information.html"><button class="button button1">i</button></form></div>
+
+
+
+
+
+             <div class="city">
+                 <h2 class="citytxt">{{pcity}}</h2>
+                 <p class="dat">{{phometime}}</p>
+             </div>
+
+
+             <div class="infotemp">
+                    {{ptemp}}°c
+             </div>
+             <div class="img">
+                      <img src="{{picon}}" width="150px", height=auto)>
+             </div>
+             <div class="describe">
+                 {{pweather}}
+             </div>
+            <div class="extra">
+                <div class="wind">
+                        Wind:{{pspeed}} km/h
+                </div>
+                 <div class="country">Country :{{pcountry}}</div>
+                <div class="pressure">
+                    Pressure :{{ppressure}}
+                </div>
+             </div>
+
+        </div>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
