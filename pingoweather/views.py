@@ -14,6 +14,10 @@ def home(request):
     global details,oldcity,city
     oldcity=city
 
+    now = datetime.datetime.now()
+    hour = now.hour
+
+
     if request.method == 'POST':
        # global city
         city = request.POST.get('value')
@@ -28,6 +32,8 @@ def home(request):
 
     if data["cod"] != "404":
         temp = data['main']['temp']
+        ftemp = (temp * 9/5) + 32.
+        ftemp = float("{:.2f}".format(ftemp))
         temp_min = data['main']['temp_min']
         temp_max = data['main']['temp_max']
 
@@ -40,6 +46,9 @@ def home(request):
         country = data['sys']['country']
         speed = data['wind']['speed']
         icon = data['weather'][0]['icon']
+
+
+
         iicon = ('http://openweathermap.org/img/w/{}.png').format(icon)
 
         clouds = data['clouds']['all']
@@ -47,12 +56,12 @@ def home(request):
         sunset = data['sys']['sunset']
         sunrise = datetime.datetime.fromtimestamp(sunrise)
         sunset = datetime.datetime.fromtimestamp(sunset)
-        hometime = sunrise.strftime('%d/%m/%Y')
+        hometime = sunrise.strftime('%d %b | %Y')
 
         details = {'phometime': hometime, 'psunrise': sunrise, 'psunset': sunset, 'pcountry': country, 'picon': iicon,
-                   'pcity': city.capitalize(), 'ptemp': temp, 'ptemp_min': temp_min, 'ptemp_max': temp_max,
+                   'pcity': city.capitalize(), 'ptemp': temp, 'ftemp':ftemp,'ptemp_min': temp_min, 'ptemp_max': temp_max,
                    'pfeels_like': feels_like,'ppressure': pressure, 'pspeed': speed, 'pweather': weather,
-                   'pdescription': description,'phumidity': humidity, 'pclouds': clouds}
+                   'pdescription': description,'phumidity': humidity, 'pclouds': clouds,'hour':hour}
 
     else:
 
@@ -64,10 +73,7 @@ def home(request):
     return render(request, 'pingoweather/home.html', details)
 
 
-def info(request):
-    global details
 
-    return render(request, 'pingoweather/information.html', details)
 
 
 

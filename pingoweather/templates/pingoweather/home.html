@@ -1,99 +1,131 @@
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>django Weather application using weather api</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pingo</title>
+    <link rel="stylesheet" href="style.css">
     {% load static %}
-     <link rel="stylesheet" type="text/css" href="{% static  'pingoweather/css/mystyle.css' %}" >
-
-
-
-
+    <link rel="stylesheet" type="text/css" href="{% static  'pingoweather/css/mystyle.css' %}" >
 </head>
 
 
+<body style="background-image: url({% static  'pingoweather/img/a.jpg' %});">
 
+    <div class="container">
 
-
-
-
-
-<body>
- {% if messages %}
-            <div class="alert">
-               <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-
-                <ul class="messages">
-                        {% for message in messages %}
-                             <li class="{{ message.tags }}">{{ message }}</li>
-                              {% endfor %}
-                  </ul>
-
-            </div>
-            {% endif %}
-
-<div class="base">
-
-        <div class="nothing">
-
+        {% if messages %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
         </div>
+        {% endif %}
+
+
         <div class="heading">
-            <h1 class="textheading">
-                <span class="text">Pingo Weather</span>
-            </h1>
-         </div>
-        <form  action="" method="POST">
-            {% csrf_token %}
-        <div class="search">
-
-            <input type="text" id="value" name="value">
-            <input type="submit" id="submit"  name="Find">
+            <p>PINGO WEATHER</p>
         </div>
+
+
+
+
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="flexContainer">
+                <input type="text" class="inputField" placeholder="Search city" name="value" id="value">
+                <button type=" submit " name="Find" value="submit"><img src="{% static 'pingoweather/img/btn.png' %} " alt="Arrow Icon " style="width:20px; padding:2px; border:1px solid #071752 " ></button>
+            </div>
         </form>
 
+        <div class="edu-container ">
+            <div class="edu ">
+                <div class="edu-menu ">
+                    <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/clear.jpg' %}); ">
 
-        <div class="information-container">
+                    {% if pweather == 'Rain' %}
+                    <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/rain2.jpg' %}); ">
+                        {% endif%}
+
+                    {% if pweather == 'Clear' %}
+                         <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/minimal.jpg' %}); ">
+                      {%endif%}
+
+                       {% if pweather == 'Haze'%}
+                                 <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/mist.jpg' %}); ">
+                             {%endif%}
+
+                             {% if pweather == 'Clouds'%}
+                              <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/rain2.jpg    ' %}); ">
+                           {%endif%}
+
+                               {% if pweather == 'Drizzle'%}
+                                <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/rain2.jpg' %}); ">
+                                {%endif%}
+
+                            {% if pweather == 'Thunderstorm'%}
+                                 <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/rain.jpg' %}); ">
+                            {%endif%}
+
+                             {% if pweather == 'Fog'%}
+                                 <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/haze.jpg' %}); ">
+                               {%endif%}
+
+                               {% if pweather == 'Snow'%}
+                                  <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/ice.jpg' %}); ">
+                                 {%endif%}
+
+                               {% if pweather == 'Sand'%}
+                                <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/sunny.png' %}); ">
+                             {%endif%}
+
+                             {% if pweather == 'Dust'%}
+                               <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/sunny.pngg' %}); ">
+                              {%endif%}
+
+                               {% if pweather == 'Mist'%}
+                                 <figure class="edu-font " style="background-image: url({% static  'pingoweather/img/fog.jpg' %}); ">
+                                {%endif%}
 
 
-            <div class="but"> <form action="information.html"><button class="button button1">i</button></form></div>
 
 
+                        <div class="edu-heading ">
+                            <h2 class="location " style=" text-transform: uppercase; margin-bottom:10px;">{{pweather}}</h2>
+                            <p class="date ">{{pcity}} | {{phometime}}</p>
+                            <div class="edupic "><img src="{{picon}}"></div>
+                            <h2 class="temp ">{{ptemp}} &deg;C | {{ftemp}} &deg;F</h2>
+                        </div>
+                    </figure>
 
 
-
-             <div class="city">
-                 <h2 class="citytxt">{{pcity}}</h2>
-                 <p class="dat">{{phometime}}</p>
-             </div>
-
-
-             <div class="infotemp">
-                    {{ptemp}}°c
-             </div>
-             <div class="img">
-                      <img src="{{picon}}" width="150px", height=auto)>
-             </div>
-             <div class="describe">
-                 {{pweather}}
-             </div>
-            <div class="extra">
-                <div class="wind">
-                        Wind:{{pspeed}} km/h
+                    <figure class="edu-back ">
+                        <div class="wtr " style="background-image: url({% static  'pingoweather/img/sunny1.jpg' %}); ">
+                            <div> <img src="{% static 'pingoweather/img/temperature.png' %}">Temperature :{{ptemp}}</div>
+                            <div><img src="{% static 'pingoweather/img/feels.png' %}"> Feels like :{{pfeels_like}}</div>
+                            <div><img src="{% static 'pingoweather/img/temp.png' %}">Max : {{ptemp_max}}</div>
+                            <div><img src="{% static 'pingoweather/img/cold.png' %}">Min : {{ptemp_min}}</div>
+                            <div><img src="{% static 'pingoweather/img/umbrella.png' %}">Weather : {{pweather}} </div>
+                            <div><img src="{% static 'pingoweather/img/water.png' %}">Humidity : {{phumidity}} </div>
+                            <div><img src="{% static 'pingoweather/img/wind.png' %}">Wind :{{pspeed}} km/h </div>
+                            <div><img src="{% static 'pingoweather/img/weather.png' %}">Cloud : {{pclouds}} </div>
+                            <div><img src="{% static 'pingoweather/img/sunrise.png' %}">Sunrise : {{psunrise}} </div>
+                            <div><img src="{% static 'pingoweather/img/sunset.png' %}">Sunset : {{psunset}} </div>
+                        </div>
+                    </figure>
                 </div>
-                 <div class="country">Country :{{pcountry}}</div>
-                <div class="pressure">
-                    Pressure :{{ppressure}}
-                </div>
-             </div>
-
+            </div>
         </div>
+    </div>
 
-
-
-</div>
-
-
-
+    <div class="footer">
+        <p>Handcrafted by Arnab Das</p>
+    </div>
 
 </body>
+
 </html>
