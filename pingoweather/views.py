@@ -14,8 +14,6 @@ def home(request):
     global details,oldcity,city
     oldcity=city
 
-    now = datetime.datetime.now()
-    hour = now.hour
 
 
     if request.method == 'POST':
@@ -60,7 +58,7 @@ def home(request):
         details = {'phometime': hometime, 'psunrise': sunrise, 'psunset': sunset, 'pcountry': country, 'picon': iicon,
                    'pcity': city.capitalize(), 'ptemp': temp, 'ftemp':ftemp,'ptemp_min': temp_min, 'ptemp_max': temp_max,
                    'pfeels_like': feels_like,'ppressure': pressure, 'pspeed': speed, 'pweather': weather,
-                   'pdescription': description,'phumidity': humidity, 'pclouds': clouds,'hour':hour}
+                   'pdescription': description,'phumidity': humidity, 'pclouds': clouds,'hometime':hometime}
 
     else:
 

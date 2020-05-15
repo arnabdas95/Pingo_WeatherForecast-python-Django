@@ -48,12 +48,12 @@
 
 
                     {%if pweather == 'Rain'%}
-                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain2.jpg' %}); background-size: cover; ">
+                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/droprain.jpg' %}); background-size: cover; ">
 
 
 
                         {% elif pweather == 'Clear'%}
-                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/minimal.jpg' %}); background-size: cover; ">
+                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/sun.jpg' %}); background-size: cover; ">
 
 
 
@@ -62,13 +62,13 @@
 
 
                                 {% elif pweather == 'Clouds'%}
-                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/clouds.jpg' %}); background-size: cover; ">
+                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain2.jpg' %}); background-size: cover; ">
 
                                     {% elif pweather == 'Drizzle'%}
-                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain2.jpg' %}); background-size: cover; ">
+                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/drizzle.jpg' %}); background-size: cover; ">
 
                                         {% elif pweather == 'Thunderstorm'%}
-                                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain.jpg' %}); background-size: cover; ">
+                                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/thunder.jpg' %}); background-size: cover; ">
 
 
                                             {% elif pweather == 'Sand'%}
@@ -86,12 +86,12 @@
                                                             <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/haze.jpg' %}); background-size: cover; ">
 
                                                                 {%else%}
-                                                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/clear.jpg' %}); background-size: cover; ">
+                                                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/minimal.jpg' %}); background-size: cover; ">
                                                                     {%endif%}
 
 
                                                                     <div class="edu-heading ">
-                                                                        <h2 class="location ">{{pweather}}</h2>
+                                                                        <h2 class="location" style=" text-transform: uppercase;">{{pweather}}</h2>
                                                                         <p class="date ">{{pcity}} | {{hometime}}</p>
                                                                         <div class="edupic "><img src="{{picon}} "></div>
                                                                         <h2 class="temp ">{{ptemp}} &deg;C | {{ftemp}} &deg;F</h2>
@@ -103,15 +103,15 @@
 
                                                                     <div class="wtr" style="background-image: url({% static  'pingoweather/img/sunny1.jpg' %});">
                                                                         <div> <img src="{% static 'pingoweather/img/temperature.png'%} ">Temperature :{{ptemp}}</div>
-                                                                        <div><img src="{% static 'pingoweather/img/feels.png '%}"> Feels like :{{pfeels_like}}</div>
+                                                                        <div><img src="{% static 'pingoweather/img/feels.png'%}"> Feels like :{{pfeels_like}}</div>
                                                                         <div><img src="{% static 'pingoweather/img/temp.png'%} ">Max : {{ptemp_max}}</div>
                                                                         <div><img src="{% static 'pingoweather/img/cold.png'%} ">Min : {{ptemp_min}}</div>
-                                                                        <div><img src="{% static 'pingoweather/img/weather.png '%}">Weather : {{pweather}} </div>
-                                                                        <div><img src="{% static 'pingoweather/img/water.png '%}">Humidity : {{phumidity}} </div>
-                                                                        <div><img src="{% static 'pingoweather/img/wind.png '%}">Wind :{{pspeed}} km/h </div>
-                                                                        <div><img src="{% static 'pingoweather/img/umbrella.png '%}">Cloud : {{pclouds}} </div>
-                                                                        <div><img src="{% static 'pingoweather/img/sunrise.png '%}">Sunrise : {{psunrise}} </div>
-                                                                        <div><img src="{% static 'pingoweather/img/sunset.png '%}">Sunset : {{psunset}} </div>
+                                                                        <div><img src="{% static 'pingoweather/img/weather.png'%}">Weather : {{pweather}} </div>
+                                                                        <div><img src="{% static 'pingoweather/img/water.png'%}">Humidity : {{phumidity}} </div>
+                                                                        <div><img src="{% static 'pingoweather/img/wind.png'%}">Wind :{{pspeed}} km/h </div>
+                                                                        <div><img src="{% static 'pingoweather/img/umbrella.png'%}">Cloud : {{pclouds}} </div>
+                                                                        <div><img src="{% static 'pingoweather/img/sunrise.png'%}">Sunrise : {{psunrise}} </div>
+                                                                        <div><img src="{% static 'pingoweather/img/sunset.png'%}">Sunset : {{psunset}} </div>
                                                                     </div>
 
                                                                 </div>
