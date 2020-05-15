@@ -21,8 +21,7 @@ def home(request):
     if request.method == 'POST':
        # global city
         city = request.POST.get('value')
-        if city == '':
-            city = oldcity
+
     url = "http://api.openweathermap.org/data/2.5/weather?q={}&appid=241bc9a407a7565c4e826f1fbf47c197&units=metric".format(city)
 
     res = requests.get(url)

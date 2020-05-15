@@ -48,134 +48,16 @@
         flex-wrap: wrap;
     }
 
-    .edu {
-        width: 250px;
-        height: 30rem;
-        padding: 2px;
-        justify-content: center;
-    }
-
-    @media only screen and (min-width: 600px) {
-        .edu {
-            display: flex;
-            width: 350px;
-            height: 35rem;
-            padding: 10px;
-            margin: auto;
-        }
-        .flexContainer {
-            width: 350px;
-        }
-        .heading {
-            border-bottom: 2px solid white;
-            font-size: 30px;
-            ;
-        }
-    }
-
-    .edu-menu {
-        width: 100%;
-        height: 100%;
-        box-shadow: 0px 8px 16px 0px #4f3b5aaf;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        color: rgb(103, 58, 114);
-        transition: .8s ease-in-out;
-        transform-style: preserve-3d;
-        border-radius: 5px;
-    }
-
-    .edu:hover .edu-menu {
-        transform: rotateY(180deg);
-    }
-
-    .edu-menu figure {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        margin: 0;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .edu-font {
-        background: rgb(255, 255, 255);
-        text-align: center;
-        overflow: hidden;
-        background-size: cover;
-    }
-
-    .edupic {
-        position: absolute;
-        top: 22%;
-        left: -1%;
-        width: 100%;
-    }
-
-    @media only screen and (min-width: 600px) {
-        .edu {
-            font-size: 18px;
-        }
-    }
-
-    .edu-back {
-        background: rgb(255, 255, 255);
-        transform: rotateY(180deg);
-    }
-
-    .edu-heading {
-        text-align: center;
-        border-bottom: solid 1px rgb(255, 243, 230);
-        color: rgb(36, 36, 36);
-        width: 90%;
-        height: 90%;
-
-    }
-
-    .temp {
-        position: absolute;
-        top: 85%;
-        width: 100%;
-        left: 0px;
-        color: rgb(255, 243, 230);
-    }
-
-    .wtr {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        background-size: cover;
-        border-radius: 5px;
-    }
 
 
 
-    .wtr div {
-        color: rgb(247, 247, 247);
-        overflow: hidden;
-        width: 80%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        text-align: center;
-        border-bottom: 1px solid rgb(226, 226, 226);
-    }
 
-    .wtr img {
-        width: 15px;
-        margin-right:2px;
-    }
 
-    .wtr div:hover {
-        background: rgba(22, 43, 110, 0.808);
-        width: 100%;
-        transition: 1s;
-    }
+
+
+
+
+
 
     .footer {
         position: fixed;
@@ -212,4 +94,134 @@
 
     .closebtn:hover {
         color: black;
+    }
+
+
+
+
+
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 29rem;
+            perspective: 1000px;
+
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+
+         .flip-card-front{
+         display:flex;
+         justify-content:center;
+         align-items:center;}
+
+
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+                border-radius:7px;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+             border-radius:7px;
+        }
+
+        .edu-heading {
+            text-align: center;
+            border-bottom: solid 1px rgb(255, 243, 230);
+            color: rgb(36, 36, 36);
+            width: 95%;
+            height: 85%;
+
+            padding-top:25px; justify-content:center;
+
+        }
+
+
+        .edupic {
+            position: absolute;
+            top: 20%;
+            left: -2%;
+            width: 100%;
+        }
+
+        .temp {
+            position: absolute;
+            top: 85%;
+            width: 100%;
+            left: 0px;
+            color: rgb(255, 243, 230);
+        }
+
+        .wtr {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-image: url('rain.jpg');
+            background-size: cover;
+
+        }
+
+        .wtr div {
+            color: rgb(247, 247, 247);
+            overflow: hidden;
+            width: 80%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            border-bottom: 1px solid rgb(226, 226, 226);
+        }
+
+        .wtr img {
+            width: 15px;
+        }
+
+        .wtr div:hover {
+            background: rgba(22, 43, 110, 0.808);
+            width: 100%;
+            transition: 1s;
+        }
+
+
+
+          @media only screen and (min-width: 600px) {
+        .flip-card {
+            display: flex;
+            width: 350px;
+            height: 35rem;
+
+        }
+        .flexContainer {
+            width: 350px;
+        }
+        .heading {
+            border-bottom: 2px solid white;
+            font-size: 30px;
+            ;
+        }
     }
