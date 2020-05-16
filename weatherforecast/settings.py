@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@aif&u5nq%9ah*u9gl9)dz5$m8&$b081666n#=&qajz*6c#qne'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pingoweather.herokuapp.com','pingoweather.com','herokuapp.com','127.0.0.1']
 

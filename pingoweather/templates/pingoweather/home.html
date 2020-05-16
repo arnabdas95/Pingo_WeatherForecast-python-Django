@@ -43,17 +43,37 @@
         </form>
 
         <div class="edu-container ">
+            {%if Flag %}
+             <div class="flip-card">
+                  <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/intro.jpg' %}); background-size: cover; background-position:center; ">
+                      </div>
+                      <div class="flip-card-back ">
+                           <div class="wtr" style="background-image: url({% static  'pingoweather/img/introback.jpg' %});">
+
+                               <h2>Welcome to PINGO WEATHER</h2>
+                               <p style="text-aline:center;color:black;margin:20px;">Here you can find the current weather information of most of the places all over the world.
+                                   This website is developed by Arnab Das for educational purpose only.Due to free web hosting
+                                   search result may be delayed sometimes.
+                                   As being not a official weatherforecast service, data provided here, may be wrong sometimes.
+                                   <br>Thanks a lot for visiting this page.
+                               </p>
+                           </div>
+                      </div>
+                  </div>
+             </div>
+
+             {%else%}
+
             <div class="flip-card">
                 <div class="flip-card-inner">
-
-
                     {%if pweather == 'Rain'%}
-                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/droprain.jpg' %}); background-size: cover; ">
+                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/droprain.jpg' %}); background-size: cover; background-position:center;">
 
 
 
                         {% elif pweather == 'Clear'%}
-                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/sun.jpg' %}); background-size: cover; ">
+                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/sun.jpg' %}); background-size: cover; background-position:center;">
 
 
 
@@ -62,13 +82,13 @@
 
 
                                 {% elif pweather == 'Clouds'%}
-                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain2.jpg' %}); background-size: cover; ">
+                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/rain2.jpg' %}); background-size: cover; background-position:center;">
 
                                     {% elif pweather == 'Drizzle'%}
-                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/drizzle.jpg' %}); background-size: cover; ">
+                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/drizzle.jpg' %}); background-size: cover; background-position:center;">
 
                                         {% elif pweather == 'Thunderstorm'%}
-                                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/thunder.jpg' %}); background-size: cover; ">
+                                        <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/thunder.jpg' %}); background-size: cover; background-position:center;">
 
 
                                             {% elif pweather == 'Sand'%}
@@ -78,7 +98,7 @@
                                                 <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/sunny.png' %}); background-size: cover; ">
 
                                                     {% elif pweather == 'Mist'%}
-                                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/fog.jpg' %}); background-size: cover; ">
+                                                    <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/newmist.jpg' %}); background-size: cover; background-position:center;">
                                                         {% elif pweather == 'Snow'%}
                                                         <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/ice.jpg' %}); background-size: cover; ">
 
@@ -86,7 +106,7 @@
                                                             <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/haze.jpg' %}); background-size: cover; ">
 
                                                                 {%else%}
-                                                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/minimal.jpg' %}); background-size: cover; ">
+                                                                <div class="flip-card-front" style="background-image: url({% static 'pingoweather/img/minimal.jpg' %}); background-size: cover;background-position:center; ">
                                                                     {%endif%}
 
 
@@ -102,10 +122,10 @@
                                                                 <div class="flip-card-back ">
 
                                                                     <div class="wtr" style="background-image: url({% static  'pingoweather/img/sunny1.jpg' %});">
-                                                                        <div> <img src="{% static 'pingoweather/img/temperature.png'%} ">Temperature :{{ptemp}}</div>
-                                                                        <div><img src="{% static 'pingoweather/img/feels.png'%}"> Feels like :{{pfeels_like}}</div>
-                                                                        <div><img src="{% static 'pingoweather/img/temp.png'%} ">Max : {{ptemp_max}}</div>
-                                                                        <div><img src="{% static 'pingoweather/img/cold.png'%} ">Min : {{ptemp_min}}</div>
+                                                                        <div> <img src="{% static 'pingoweather/img/temperature.png'%} ">Temperature :{{ptemp}} &deg;C</div>
+                                                                        <div><img src="{% static 'pingoweather/img/feels.png'%}"> Feels like :{{pfeels_like}} &deg;C</div>
+                                                                        <div><img src="{% static 'pingoweather/img/temp.png'%} ">Max : {{ptemp_max}} &deg;C</div>
+                                                                        <div><img src="{% static 'pingoweather/img/cold.png'%} ">Min : {{ptemp_min}} &deg;C</div>
                                                                         <div><img src="{% static 'pingoweather/img/weather.png'%}">Weather : {{pweather}} </div>
                                                                         <div><img src="{% static 'pingoweather/img/water.png'%}">Humidity : {{phumidity}} </div>
                                                                         <div><img src="{% static 'pingoweather/img/wind.png'%}">Wind :{{pspeed}} km/h </div>
@@ -113,16 +133,15 @@
                                                                         <div><img src="{% static 'pingoweather/img/sunrise.png'%}">Sunrise : {{psunrise}} </div>
                                                                         <div><img src="{% static 'pingoweather/img/sunset.png'%}">Sunset : {{psunset}} </div>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
+                                {%endif%}
+                                </div>
 
-                                                    </div>
-
-                                                    <div class="footer">
-                                                        <p>Handcrafted by Arnab Das</p>
-                                                    </div>
+            <div class="footer">
+                <p>Handcrafted by Arnab Das</p>
+            </div>
 
 
 </body>

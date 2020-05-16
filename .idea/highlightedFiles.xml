@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTreeColorHighlighter">
-    <files>
-      <node color="7" path="$PROJECT_DIR$/pingoweather" />
-      <node color="1" path="$PROJECT_DIR$/weatherforecast" />
-    </files>
     <colors>
       <color name="Color 1" value="#4f060d" enabled="true" />
       <color name="Color 2" value="#44220e" enabled="true" />
