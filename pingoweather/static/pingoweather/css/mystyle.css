@@ -12,6 +12,7 @@
         width: 100vw;
         background-size: cover;
         position:center;
+        background-repeat:no-repeat;
     }
 
     .container {
