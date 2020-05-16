@@ -45,7 +45,7 @@ def home(request):
         else:
             messages.error(request, ' SORRY! NO CITY FOUND !!!')
 
-    print(details['Flag'])
+
     return render(request, 'pingoweather/home.html', details)
 
 
